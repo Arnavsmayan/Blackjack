@@ -37,16 +37,19 @@ def total(hand):
             elif cardValue == "A":
                 totalValue = totalValue + 11
     return totalValue
-              
+
+
 #actual gameplay
 #Dealing first round of cards
 for _ in range(2):
     dealHand(playerHand)
     dealHand(dealerHand)
 
+
 print("Dealer's Hand:\n<Card Hidden>\n",dealerHand[1],"\n")
 print("Player's Hand:\n",playerHand[0],"\n",playerHand[1])
 print("Player's total is:",total(playerHand))
+
 
 #Next Round
 while True:
@@ -64,14 +67,17 @@ while True:
         if total(playerHand) <= 21:
             print("Player's new total is:",total(playerHand))
         if hitOrStand == "s":
-            if total(dealerHand) < 16:   #Dealer's logic
-                dealHand(dealerHand)
-                print("Dealer drew <Card Hidden>")
-            if total(dealerHand) > 21:
-                print(f"Dealer's total is {total(dealerHand)}. Dealer is bust. PLAYER WINS!!") #Can Add option to retry here
-                sys.exit()
-            if total(dealerHand) >=16:
-                break   
+            while True:
+                if total(dealerHand) < 16:   #Dealer's logic
+                    dealHand(dealerHand)
+                    print("Dealer drew <Card Hidden>")
+                if total(dealerHand) > 21:
+                    print(f"Dealer's total is {total(dealerHand)}. Dealer is bust. PLAYER WINS!!") #Can Add option to retry here
+                    sys.exit()
+                if total(dealerHand) >=16:
+                    break  
+            break 
+
 
 if total(dealerHand) > total(playerHand):
     print(f"Dealer has {total(dealerHand)} and player has {total(playerHand)}. PLAYER LOSES!!")
