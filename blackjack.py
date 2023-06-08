@@ -81,7 +81,7 @@ while True:
 
 if total(dealerHand) > total(playerHand):
     print(f"Dealer has {total(dealerHand)} and player has {total(playerHand)}. PLAYER LOSES!!")
-if total(dealerHand) == total(playerHand):
+elif total(dealerHand) == total(playerHand):
     print(f"Dealer has {total(dealerHand)} and player has {total(playerHand)}. DRAW!!")
 elif total(playerHand) > total(dealerHand):
     print(f"Dealer has {total(dealerHand)} and player has {total(playerHand)}. PLAYER WINS!!")
