@@ -13,6 +13,25 @@ def dealHand(hand):
     cards.remove(card)
     return hand
 
+#Again input will be playerHand or dealerHand
+def total(hand):
+    totalValue=0
+    face=["J","Q","K"]
+    for cardValue in hand:
+        if cardValue in range(1,11):
+            totalValue = totalValue + cardValue
+        elif cardValue in face:
+            totalValue = totalValue + 10
+        else:
+            if totalValue > 10:
+                totalValue = totalValue + 1
+            else:
+                totalValue = totalValue + 11
+    return totalValue
+
 dealHand(playerHand)
-print(playerHand[0])
+dealHand(playerHand)
+print(total(playerHand))                
+
+
     
